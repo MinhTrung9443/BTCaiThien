@@ -26,7 +26,7 @@ public class LoginController {
 		return "index";
 	}
 	
-	@PostMapping
+	@PostMapping("/login_failure_handler")
 	public String loginFailureHandler() {
 		System.out.println("login failure handler...");
 		
@@ -50,7 +50,7 @@ public class LoginController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveProduct(@ModelAttribute("product") Product product) {
 		service.save(product);
-		return "new_product";
+		return "redirect:/";
 	}
 	@RequestMapping("/edit/{id}")
 	public ModelAndView showEditProductForm(@PathVariable(name = "id") Long id) {
